@@ -1,0 +1,19 @@
+[package]
+name = "figure-manager"
+version = "0.1.0"
+edition = "2021"
+description = "Gerenciador de pedidos e recursos para impressão 3D"
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = "0.4"
+uuid = { version = "1", features = ["v4"] }
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+dotenvy = "0.15"
+tokio = { version = "1", features = ["full"] }
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
