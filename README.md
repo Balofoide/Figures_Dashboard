@@ -15,7 +15,7 @@
 Construído com **Tauri v2** (Rust no backend, HTML/CSS/JS no frontend), o app é leve, seguro e rápido.
 
 ## Funcionalidades
-
+ 
 ### 📊 Dashboard
 - Visão geral com estatísticas de vendas (total e mensal)
 - Consumo de filamento acumulado
@@ -87,51 +87,8 @@ Os binários ficam em `src-tauri/target/release/bundle/`:
 - **Linux**: `.deb` + `.AppImage`
 - **Windows**: `.msi` + `.exe`
 
-## Estrutura do Projeto
 
-```
-Claybox³ᴰ/
-├── frontend/
-│   ├── index.html              # SPA entry point
-│   ├── js/
-│   │   ├── api.js              # Tauri invoke wrapper
-│   │   ├── router.js           # SPA navigation + modals + toasts
-│   │   ├── store.js            # Estado reativo
-│   │   ├── themes.js           # 8 temas visuais
-│   │   ├── components.js       # UI components + SVG icons
-│   │   ├── titlebar.js         # macOS-style traffic lights
-│   │   └── pages/
-│   │       ├── dashboard.js
-│   │       ├── pedidos.js
-│   │       ├── estoque.js
-│   │       ├── impressoras.js
-│   │       ├── envio.js
-│   │       └── settings.js
-│   └── styles/
-│       ├── tokens.css          # Design tokens + temas
-│       ├── base.css            # Reset + scrollbar
-│       ├── layout.css          # Sidebar + grid
-│       ├── components.css      # Cards, buttons, modals...
-│       └── animations.css      # Micro-animações
-├── src-tauri/
-│   ├── src/
-│   │   ├── main.rs             # Entry point + command registration
-│   │   ├── models.rs           # Structs + serialization
-│   │   ├── storage.rs          # JSONL persistence layer
-│   │   └── commands/
-│   │       ├── clients.rs      # Pedidos CRUD
-│   │       ├── estoque.rs      # Estoque CRUD
-│   │       ├── printers.rs     # Impressoras CRUD
-│   │       ├── calculator.rs   # Calculadora de preço
-│   │       ├── gcode.rs        # Parser G-code + 3MF
-│   │       ├── envio.rs        # Melhor Envio API
-│   │       └── settings.rs     # Configurações
-│   ├── Cargo.toml
-│   └── tauri.conf.json
-└── .github/
-    └── workflows/
-        └── release.yml         # CI/CD Linux + Windows
-```
+
 
 ## Licença
 
