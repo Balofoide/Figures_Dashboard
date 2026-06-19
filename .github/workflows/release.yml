@@ -5,10 +5,11 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   release:
-    permissions:
-      contents: write
     strategy:
       fail-fast: false
       matrix:
@@ -22,6 +23,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
@@ -43,8 +49,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: ${{ github.ref_name }}
-          releaseName: 'Claybox³ᴰ ${{ github.ref_name }}'
-          releaseBody: 'Release ${{ github.ref_name }} do Claybox³ᴰ.'
+          releaseName: 'Claybox 3D ${{ github.ref_name }}'
+          releaseBody: |
+            Gerenciador desktop para impressão 3D — pedidos, estoque, impressoras e envio.
+
+            **O que mudou:**
+            - Rebranding: Figure Manager → Claybox³ᴰ
+            - Fix de build Windows (ícone + compatibilidade MSI)
+
+            **Windows:** baixe o `.msi` · **Linux:** baixe o `.AppImage`
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}

@@ -21,8 +21,7 @@ const SettingsPage = {
         const themeCards = Themes.available.map(t => {
             const isActive = Themes.current === t.id;
             return `
-                <div class="card card-sm ${isActive ? 'theme-card-active' : 'theme-card'}"
-                     onclick="SettingsPage._selectTheme('${t.id}')"
+                <div class="card card-sm ${isActive ? 'theme-card-active' : 'theme-card'}" data-theme-id="${t.id}"
                      style="cursor:pointer;position:relative;overflow:hidden;${isActive ? 'border-color:var(--primary);box-shadow:0 0 12px var(--primary-glow)' : ''}">
                     <!-- Preview colors -->
                     <div style="display:flex;gap:6px;margin-bottom:var(--sp-10)">
@@ -204,6 +203,13 @@ const SettingsPage = {
         UI.applyMask('s-rem-cep', UI.maskCEP);
         UI.applyMask('s-rem-tel', UI.maskPhone);
         UI.applyMask('s-rem-cpf', UI.maskCPF);
+
+        // Bind theme card clicks via event delegation (more reliable on Windows WebView2)
+        el.querySelectorAll('[data-theme-id]').forEach(card => {
+            card.addEventListener('click', () => {
+                SettingsPage._selectTheme(card.dataset.themeId);
+            });
+        });
     },
 
     // ── Melhor Envio Actions ───────────────────────────────────────────
