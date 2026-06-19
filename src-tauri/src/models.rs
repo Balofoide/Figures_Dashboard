@@ -161,6 +161,21 @@ pub struct Settings {
     pub remetente_numero: String,
     #[serde(default)]
     pub remetente_telefone: String,
+    // Integração Melhor Envio — OAuth
+    #[serde(default)]
+    pub me_ambiente: String,         // "sandbox" | "production"
+    #[serde(default)]
+    pub me_client_id: String,
+    #[serde(default)]
+    pub me_client_secret: String,
+    #[serde(default)]
+    pub me_redirect_uri: String,
+    #[serde(default)]
+    pub me_access_token: String,
+    #[serde(default)]
+    pub me_refresh_token: String,
+    #[serde(default)]
+    pub me_token_expires: i64,       // unix timestamp
 }
 
 // =============================================================================
@@ -195,6 +210,50 @@ pub struct Label {
     pub produto: String,
     pub preco: f64,
     pub servico: String,
+    pub tracking: String,
+    pub created_at: String,
+    pub cep_destino: String,
+    pub servico_nome: String,
+}
+
+/// Evento de rastreamento
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct TrackingEvent {
+    pub status: String,
+    pub description: String,
+    pub date: String,
+    pub city: String,
+}
+
+// =============================================================================
+// Modelos — G-code Parser
+// =============================================================================
+
+/// Dados extraídos de um arquivo G-code
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GcodeData {
+    /// Nome do modelo (extraído do nome do arquivo)
+    pub nome_modelo: String,
+    /// Tempo de impressão em horas (decimal)
+    pub tempo_horas: f64,
+    /// Filamento gasto em gramas
+    pub filamento_gramas: f64,
+    /// Filamento gasto em metros (se disponível)
+    pub filamento_metros: f64,
+    /// Altura da camada (mm)
+    pub layer_height: f64,
+    /// Nome da impressora detectada no G-code
+    pub impressora: String,
+    /// Tipo de filamento (PLA, PETG, ABS, etc.)
+    pub filamento_tipo: String,
+    /// Temperatura do nozzle (°C)
+    pub temperatura_nozzle: i32,
+    /// Temperatura da mesa (°C)
+    pub temperatura_mesa: i32,
+    /// Slicer que gerou o arquivo
+    pub slicer: String,
+    /// Caminho do arquivo importado
+    pub arquivo: String,
 }
 
 // =============================================================================

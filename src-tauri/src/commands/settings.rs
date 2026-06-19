@@ -21,6 +21,14 @@ fn default_settings() -> Settings {
         remetente_cidade: String::new(),
         remetente_numero: String::new(),
         remetente_telefone: String::new(),
+        // Melhor Envio
+        me_ambiente: "sandbox".into(),
+        me_client_id: String::new(),
+        me_client_secret: String::new(),
+        me_redirect_uri: "http://localhost:7879/callback".into(),
+        me_access_token: String::new(),
+        me_refresh_token: String::new(),
+        me_token_expires: 0,
     }
 }
 
@@ -44,6 +52,14 @@ pub fn save_settings(
     remetente_cidade: Option<String>,
     remetente_numero: Option<String>,
     remetente_telefone: Option<String>,
+    // Melhor Envio
+    me_ambiente: Option<String>,
+    me_client_id: Option<String>,
+    me_client_secret: Option<String>,
+    me_redirect_uri: Option<String>,
+    me_access_token: Option<String>,
+    me_refresh_token: Option<String>,
+    me_token_expires: Option<i64>,
 ) -> Result<(), String> {
     // Carregar settings atuais para preservar campos não enviados
     let current = load_settings(data_dir.clone()).unwrap_or_else(|_| default_settings());
@@ -60,6 +76,14 @@ pub fn save_settings(
         remetente_cidade: remetente_cidade.unwrap_or(current.remetente_cidade),
         remetente_numero: remetente_numero.unwrap_or(current.remetente_numero),
         remetente_telefone: remetente_telefone.unwrap_or(current.remetente_telefone),
+        // Melhor Envio
+        me_ambiente: me_ambiente.unwrap_or(current.me_ambiente),
+        me_client_id: me_client_id.unwrap_or(current.me_client_id),
+        me_client_secret: me_client_secret.unwrap_or(current.me_client_secret),
+        me_redirect_uri: me_redirect_uri.unwrap_or(current.me_redirect_uri),
+        me_access_token: me_access_token.unwrap_or(current.me_access_token),
+        me_refresh_token: me_refresh_token.unwrap_or(current.me_refresh_token),
+        me_token_expires: me_token_expires.unwrap_or(current.me_token_expires),
     };
     storage::write_all(&data_dir, FILE, &[settings])
 }

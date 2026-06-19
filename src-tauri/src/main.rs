@@ -10,13 +10,14 @@ mod commands;
 mod models;
 mod storage;
 
-use commands::{calculator, clients, envio, estoque, printers, settings};
+use commands::{calculator, clients, envio, estoque, gcode, printers, settings};
 use storage::DataDir;
 use std::sync::Mutex;
 
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
+        .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             // Detectar o diretório correto para dados
             let data_dir = storage::detect_data_dir(app.handle());
@@ -48,15 +49,26 @@ fn main() {
             printers::update_filament,
             // Calculadora
             calculator::calculate_price,
+            // G-code
+            gcode::import_gcode,
             // Configurações
             settings::load_settings,
             settings::save_settings,
             // Melhor Envio
+            envio::get_auth_url,
+            envio::exchange_auth_code,
+            envio::refresh_access_token,
+            envio::disconnect_melhor_envio,
+            envio::lookup_cep,
             envio::calculate_shipping,
             envio::add_to_cart,
             envio::get_cart,
             envio::checkout_order,
             envio::get_labels,
+            envio::generate_label,
+            envio::print_label,
+            envio::get_tracking,
+            envio::cancel_label,
         ])
         .run(tauri::generate_context!())
         .expect("Erro ao iniciar o Figure Manager");
