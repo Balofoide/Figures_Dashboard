@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Pedidos Page
+// Claybox³ᴰ — Pedidos Page
 // CRUD de pedidos + calculadora de preço de impressão 3D
 // =============================================================================
 

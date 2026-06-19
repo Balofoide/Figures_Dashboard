@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Modelos de dados
+// Claybox³ᴰ — Modelos de dados
 // =============================================================================
 
 use serde::{Deserialize, Deserializer, Serialize};

@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Dashboard Page
+// Claybox³ᴰ — Dashboard Page
 // Visão geral com stats, estoque, gráfico de status e pedidos recentes
 // =============================================================================
 

@@ -1,7 +1,7 @@
 {
-  "productName": "Figure Manager",
+  "productName": "Claybox³ᴰ",
   "version": "0.1.0",
-  "identifier": "com.figuremanager.app",
+  "identifier": "com.claybox3d.app",
   "build": {
     "frontendDist": "../frontend"
   },
@@ -9,7 +9,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Figure Manager",
+        "title": "Claybox³ᴰ",
         "width": 1360,
         "height": 860,
         "resizable": true,

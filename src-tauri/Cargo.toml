@@ -1,5 +1,5 @@
 [package]
-name = "figure-manager"
+name = "claybox-3d"
 version = "0.1.0"
 edition = "2021"
 description = "Gerenciador de pedidos e recursos para impressão 3D"

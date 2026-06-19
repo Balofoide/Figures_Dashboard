@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Tauri v2 Entry Point
+// Claybox³ᴰ — Tauri v2 Entry Point
 // =============================================================================
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
@@ -21,7 +21,7 @@ fn main() {
         .setup(|app| {
             // Detectar o diretório correto para dados
             let data_dir = storage::detect_data_dir(app.handle());
-            println!("[Figure Manager] Diretório de dados: {:?}", data_dir);
+            println!("[Claybox³ᴰ] Diretório de dados: {:?}", data_dir);
             app.manage(DataDir(Mutex::new(data_dir)));
             Ok(())
         })
@@ -71,5 +71,5 @@ fn main() {
             envio::cancel_label,
         ])
         .run(tauri::generate_context!())
-        .expect("Erro ao iniciar o Figure Manager");
+        .expect("Erro ao iniciar o Claybox³ᴰ");
 }

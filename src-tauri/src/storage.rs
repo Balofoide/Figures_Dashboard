@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Armazenamento JSONL genérico
+// Claybox³ᴰ — Armazenamento JSONL genérico
 // =============================================================================
 
 use serde::{de::DeserializeOwned, Serialize};
@@ -21,7 +21,7 @@ pub fn resolve_path(data_dir: &DataDir, filename: &str) -> PathBuf {
 
 /// Detecta o diretório de dados correto:
 /// - Em dev: raiz do projeto (3 níveis acima do executável em target/debug/)
-/// - Em produção: app_data_dir do Tauri (ex: ~/.local/share/com.figuremanager.app/)
+/// - Em produção: app_data_dir do Tauri (ex: ~/.local/share/com.claybox3d.app/)
 pub fn detect_data_dir(app: &tauri::AppHandle) -> PathBuf {
     // Tentar usar o app_data_dir do Tauri (funciona em produção)
     if let Ok(app_data) = app.path().app_data_dir() {

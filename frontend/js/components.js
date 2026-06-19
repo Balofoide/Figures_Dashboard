@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Componentes Reutilizáveis
+// Claybox³ᴰ — Componentes Reutilizáveis
 // Funções utilitárias para geração de HTML
 // =============================================================================
 

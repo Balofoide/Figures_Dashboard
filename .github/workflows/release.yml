@@ -43,8 +43,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: ${{ github.ref_name }}
-          releaseName: 'Figure Manager ${{ github.ref_name }}'
-          releaseBody: 'Release ${{ github.ref_name }} do Figure Manager.'
+          releaseName: 'Claybox³ᴰ ${{ github.ref_name }}'
+          releaseBody: 'Release ${{ github.ref_name }} do Claybox³ᴰ.'
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}

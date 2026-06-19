@@ -110,7 +110,7 @@ pub async fn exchange_auth_code(
     let response = client
         .post(format!("{}/oauth/token", base))
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .form(&params)
         .send()
         .await
@@ -172,7 +172,7 @@ pub async fn refresh_access_token(data_dir: State<'_, DataDir>) -> Result<String
     let response = client
         .post(format!("{}/oauth/token", base))
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .form(&params)
         .send()
         .await
@@ -343,7 +343,7 @@ pub async fn calculate_shipping(
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::ACCEPT, "application/json")
         .header(header::CONTENT_TYPE, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&request)
         .send()
         .await
@@ -539,7 +539,7 @@ pub async fn add_to_cart(
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::CONTENT_TYPE, "application/json")
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&request)
         .send()
         .await
@@ -573,7 +573,7 @@ pub async fn get_cart(data_dir: State<'_, DataDir>) -> Result<Vec<CartItem>, Str
         .get(format!("{}/api/v2/me/cart", base))
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .send()
         .await
         .map_err(|e| format!("Erro na requisição: {}", e))?;
@@ -636,7 +636,7 @@ pub async fn checkout_order(data_dir: State<'_, DataDir>, order_id: String) -> R
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::CONTENT_TYPE, "application/json")
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&body)
         .send()
         .await
@@ -664,7 +664,7 @@ pub async fn get_labels(data_dir: State<'_, DataDir>) -> Result<Vec<Label>, Stri
         .get(format!("{}/api/v2/me/orders", base))
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .send()
         .await
         .map_err(|e| format!("Erro na requisição: {}", e))?;
@@ -756,7 +756,7 @@ pub async fn generate_label(data_dir: State<'_, DataDir>, order_id: String) -> R
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::CONTENT_TYPE, "application/json")
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&body)
         .send()
         .await
@@ -790,7 +790,7 @@ pub async fn print_label(data_dir: State<'_, DataDir>, order_id: String) -> Resu
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::CONTENT_TYPE, "application/json")
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&body)
         .send()
         .await
@@ -835,7 +835,7 @@ pub async fn get_tracking(data_dir: State<'_, DataDir>, order_id: String) -> Res
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::CONTENT_TYPE, "application/json")
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&body)
         .send()
         .await
@@ -892,7 +892,7 @@ pub async fn cancel_label(data_dir: State<'_, DataDir>, order_id: String) -> Res
         .header(header::AUTHORIZATION, format!("Bearer {}", token))
         .header(header::CONTENT_TYPE, "application/json")
         .header(header::ACCEPT, "application/json")
-        .header(header::USER_AGENT, "FigureManager (contato@figuremanager.com)")
+        .header(header::USER_AGENT, "Claybox3D (contato@claybox3d.com)")
         .json(&body)
         .send()
         .await

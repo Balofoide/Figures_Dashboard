@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Settings Page
+// Claybox³ᴰ — Settings Page
 // Configurações de custo + seleção de tema + dados do remetente + integração ME
 // =============================================================================
 
@@ -46,7 +46,7 @@ const SettingsPage = {
         el.innerHTML = `
             <div class="page-header anim-fade-up">
                 <h1 class="page-title">Configurações</h1>
-                <p class="page-sub">Personalize o Figure Manager</p>
+                <p class="page-sub">Personalize o Claybox³ᴰ</p>
             </div>
 
             <div class="flex gap-24">

@@ -1,5 +1,5 @@
 // =============================================================================
-// Figure Manager — Página de Envio (Melhor Envio)
+// Claybox³ᴰ — Página de Envio (Melhor Envio)
 // Calcular frete, gerenciar carrinho, etiquetas e pedidos
 // =============================================================================
 
